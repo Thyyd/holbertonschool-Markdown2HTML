@@ -19,6 +19,10 @@ def markdown_to_html(markdown_file: str, output_file: str):
     Returns:
         nothing
     """
+    # Check if the Markdown file exists
+    if not os.path.exists(markdown_file):
+        print(f"Missing {markdown_file}", file=sys.stderr)
+        exit(1)
 
     exit(0)
 
@@ -29,9 +33,4 @@ if __name__ == "__main__":
     if len(sys.argv) < 3:  # Create an array where tab[0] the name of the funct
         print("Usage: ./markdown2html.py README.md README.html",
               file=sys.stderr)
-        exit(1)
-
-    # Check if the Markdown file exists
-    if not os.path.exists(markdown_file):
-        print("Missing ", markdown_file, file=sys.stderr)
         exit(1)
